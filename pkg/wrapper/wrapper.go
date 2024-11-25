@@ -65,6 +65,7 @@ func ParseAndConvert(invocationFilePath string, durationFilePath string) ([]info
 					return nil, fmt.Errorf("invalid duration at line %d, column %d: %w", j+1, 3, err)
 				}
 				duration = time.Duration(d) * time.Millisecond // Convert to time.Duration
+				break
 			}
 		}
 
