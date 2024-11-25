@@ -20,23 +20,23 @@ func main() {
 		log.Fatalf("Error processing trace file: %v", err)
 	}
 
-	// // Step 2: Analyze cold starts for each function
-	// analyzer := logic.ColdStartAnalyzer{KeepAlive: time.Second * 60}
-	// // Analyze cold starts
-	// coldStartTimestamps, err := analyzer.AnalyzeColdStarts(invocationTimestamps)
-	// if err != err {
-	// 	log.Fatalf("Error calculating coldstarts", err)
-	// }
+	// Step 2: Analyze cold starts for each function
+	analyzer := logic.ColdStartAnalyzer{KeepAlive: time.Second * 60}
+	// Analyze cold starts
+	coldStartTimestamps, err := analyzer.AnalyzeColdStarts(invocationTimestamps)
+	if err != err {
+		log.Fatalf("Error calculating coldstarts", err)
+	}
 
-	// // Step 3: Plot cold start statistics
-	// startOfDay := time.Date(2024, 1, 1, 0, 0, 0, 0, time.UTC) // Fixed day for calculation
-	// outputFile := "cold_starts_per_minute.png"
+	// Step 3: Plot cold start statistics
+	startOfDay := time.Date(2024, 1, 1, 0, 0, 0, 0, time.UTC) // Fixed day for calculation
+	outputFile := "cold_starts_per_minute.png"
 
-	// err = plot.PlotColdStarts(coldStartTimestamps, startOfDay, outputFile)
-	// if err != nil {
-	// 	log.Fatalf("Error creating plot: %v", err)
-	// }
+	err = plot.PlotColdStarts(coldStartTimestamps, startOfDay, outputFile)
+	if err != nil {
+		log.Fatalf("Error creating plot: %v", err)
+	}
 
-	// fmt.Printf("Cold start statistics plotted successfully: %s\n", outputFile)
-	fmt.Println(invocationTimestamps)
+	fmt.Printf("Cold start statistics plotted successfully: %s\n", outputFile)
+	// fmt.Println(invocationTimestamps)
 }
