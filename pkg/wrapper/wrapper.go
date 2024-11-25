@@ -78,6 +78,9 @@ func ParseAndConvert(invocationFilePath string, durationFilePath string) ([]info
 			}
 
 			if count > 0 {
+				if count > 1000 {
+					count = 1000
+				}
 				// Calculate timestamps for the current minute
 				minuteStart := startOfDay.Add(time.Duration(minute) * time.Minute)
 				interval := time.Second * 60 / time.Duration(count) // Interval in time.Duration
