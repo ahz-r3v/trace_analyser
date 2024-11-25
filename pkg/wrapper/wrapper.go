@@ -47,6 +47,7 @@ func ParseAndConvert(invocationFilePath string, durationFilePath string) ([]info
 
 	// Process invocation
 	for i, row := range invoRows {
+		fmt.Println(i)
 		// Skip header row
 		if i == 0 {
 			continue
