@@ -101,6 +101,6 @@ func ParseAndConvert(invocationFilePath string, durationFilePath string) ([]info
 			Duration: 	  durations,
 		})
 	}
-
+	fmt.Println("return")
 	return results, nil
 }
